@@ -1,0 +1,44 @@
+# ship_creation_screen.kv
+<ShipCreationScreen>
+    name: 'ship_creation_screen'
+    BoxLayout:
+        orientation: 'vertical'
+        padding: dp(20)
+        spacing: dp(20)
+
+        MDTextField:
+            id: ship_name_input
+            hint_text: "Ship Name"
+        
+        MDDropDownItem:
+            id: strength_one_input
+            text: 'Select Strength 1'
+            size_hint_x: 1
+            on_release: app.menu_methods.open_strength_menu(self, app.menu_methods.set_strength_one)
+
+        MDDropDownItem:
+            id: strength_two_input
+            text: 'Select Strength 2'
+            size_hint_x: 1
+            on_release: app.menu_methods.open_strength_menu(self, app.menu_methods.set_strength_two)
+
+        MDDropDownItem:
+            id: problem_input
+            text: 'Select Problem'
+            size_hint_x: 1
+            on_release: app.menu_methods.open_problem_menu(self)
+
+        MDTextField:
+            id: ship_notes_input
+            hint_text: "Captain's Log"
+            multiline: True
+
+        MDRaisedButton:
+            text: "Save Ship"
+            on_release: 
+                self.disabled = True
+                self.text = 'Working on it'
+                app.ship_methods.save_ship()
+                self.text = 'Ship Manufactured'
+                self.disabled = False
+                pos_hint: {'center_x': 0.5}

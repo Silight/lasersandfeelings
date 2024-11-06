@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Lazers and Feelings Tools</string>
+    <string name="private_version">4684c280d5535be35d0be3f3ca14b3897e322794</string>
+    <string name="presplash_color">#000000</string>
+    <string name="urlScheme">kivy</string>
+</resources>

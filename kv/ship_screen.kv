@@ -1,0 +1,49 @@
+# ship_screen.kv
+<ShipScreen>:
+    name: 'ship_screen'
+    BoxLayout:
+        orientation: 'vertical'
+        padding: dp(20)
+        spacing: dp(20)
+
+        ShipList:
+            id: ship_list
+            viewclass: 'ShipCard'
+            RecycleBoxLayout:
+                default_size: None, dp(150)
+                default_size_hint: 1, None
+                size_hint_y: None
+                height: self.minimum_height
+                orientation: 'vertical'
+        
+        MDRaisedButton:
+            text: 'Create Ship'
+            on_press: app.ship_methods.create_ship()
+            pos_hint: {'center_x': 0.5}
+
+<ShipCard>:
+    orientation: 'vertical'
+    size_hint: 1, None
+    height: dp(150)
+    padding: dp(10)
+    spacing: dp(10)
+
+    MDLabel:
+        text: root.ship_name
+        theme_text_color: "Primary"
+    
+    MDLabel:
+        text: "Strength One: " + root.strength_one
+        theme_text_color: "Secondary"
+    
+    MDLabel:
+        text: "Strength Two: " + root.strength_two
+        theme_text_color: "Secondary"
+    
+    MDLabel:
+        text: "Problem: " + root.problem
+        theme_text_color: "Secondary"
+    
+    MDLabel:
+        text: "Captain's Log: " + root.ship_notes
+        theme_text_color: "Secondary"

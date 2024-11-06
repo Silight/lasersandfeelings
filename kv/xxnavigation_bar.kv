@@ -1,0 +1,47 @@
+<NavigationBar>:
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: None
+        height: dp(56)
+        padding: dp(10)
+        spacing: dp(10)
+
+        MDRaisedButton:
+            text: "Home"
+            on_release: app.switch_screen('home')
+
+        MDRaisedButton:
+            text: "Character Sheet"
+            on_release: app.switch_screen('character_sheet')
+
+        MDRaisedButton:
+            text: "About"
+            on_release: app.switch_screen('about')
+
+        MDRaisedButton:
+            text: "Create Character"
+            on_release: app.switch_screen('create_character')
+
+        MDRaisedButton:
+            text: "Character Info"
+            on_release: app.switch_screen('character_info_screen')
+
+        MDRaisedButton:
+            text: "Ship Creation"
+            on_release: app.switch_screen('ship_creation_screen')
+
+        MDRaisedButton:
+            text: "Ship Screen"
+            on_release: app.switch_screen('ship_screen')
+
+        MDRaisedButton:
+            text: "Rules"
+            on_release: app.switch_screen('rules_screen')
+
+        MDRaisedButton:
+            text: "Ship Info"
+            on_release: app.switch_screen('ship_info_screen')
+
+        MDRaisedButton:
+            text: "Settings"  # Add a button for the new screen
+            on_release: app.switch_screen('settings')

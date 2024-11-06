@@ -1,0 +1,52 @@
+# character_sheet.kv
+<CharacterScreen>:
+    name: 'character_sheet'
+    BoxLayout:
+        orientation: 'vertical'
+        padding: dp(20)
+        spacing: dp(20)
+
+        CharacterList:
+            id: character_list
+            viewclass: 'CharacterCard'
+            RecycleBoxLayout:
+                default_size: None, dp(150)
+                default_size_hint: 1, None
+                size_hint_y: None
+                height: self.minimum_height
+                orientation: 'vertical'
+
+        MDRaisedButton:
+            text: "Create Character"
+            pos_hint: {'center_x': 0.5}
+            on_release: app.switch_screen('create_character')
+
+<CharacterCard>:
+    orientation: 'vertical'
+    size_hint: 1, None
+    height: dp(150)
+    padding: dp(10)
+    spacing: dp(10)
+
+    MDLabel:
+        text: root.name
+        theme_text_color: "Primary"
+    
+    MDLabel:
+        text: "Style: " + root.style
+        theme_text_color: "Secondary"
+    
+    MDLabel:
+        text: "Role: " + root.role
+        theme_text_color: "Secondary"
+    
+    MDLabel: 
+        theme_text_color: "Secondary"
+    
+    MDLabel:
+        text: "Number: " + root.number
+        theme_text_color: "Secondary"
+    
+    MDLabel:
+        text: "Journal: " + root.journal_notes
+        theme_text_color: "Secondary"

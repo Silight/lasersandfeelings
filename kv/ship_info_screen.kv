@@ -1,0 +1,70 @@
+<ShipInfoScreen>:
+    name: 'ship_info'
+    BoxLayout:
+        orientation: 'vertical'
+        padding: dp(20)
+        spacing: dp(20)
+        MDBoxLayout: 
+            orientation: 'vertical'
+            MDLabel:
+                id: name_label
+                text: "Ship: "
+                halign: 'center'
+                bold: True          
+            MDLabel:
+                id: strength_one_label
+                text: "Strength One: "
+                halign: 'left'
+                bold: True
+            MDLabel:
+                id: strength_two_label
+                text: "Strength Two: "
+                halign: 'left'
+                bold: True
+            MDLabel:
+                id: problem_label
+                text: "Problem: "
+                halign: 'left'
+                bold: True
+        
+        MDBoxLayout:
+            orientation: 'vertical'
+            MDLabel:
+                text: "Captain's Log:"
+                halign: 'left'
+                bold: True
+                size_hint_y: .1
+                underline: True
+            
+            RecycleView:
+                id: notes_list
+                viewclass: 'MDLabel'
+                size_hint_y: 1 
+                RecycleBoxLayout:
+                    default_size: None, dp(40)  
+                    default_size_hint: 1, None
+                    size_hint_y: None
+                    height: self.minimum_height
+                    orientation: 'vertical'
+
+        MDBoxLayout:
+            orientation: 'vertical'
+            spacing: dp(10)
+            MDTextField:
+                id: ship_notes_input
+                hint_text: "Add a new Log Entry"
+                multiline: True
+                size_hint_y: None
+                height: dp(100)
+            MDBoxLayout:
+                orientation: 'horizontal'
+                MDRaisedButton:
+                    text: "Back"
+                    on_release: app.switch_screen('ship_screen')
+                Widget:
+                    size_hint_x: 1
+                MDRaisedButton:
+                    text: "Log Entry"
+                    on_release: app.ship_methods.save_ship_notes()
+                    size_hint_x: None
+                    width: dp(100)

@@ -1,0 +1,43 @@
+<AboutScreen>:
+    name: 'about'
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 10
+        spacing: 10
+        
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1  # Ensure the image is fully opaque
+            Rectangle:
+                source: 'assets/img/raptor_blue.png'
+                pos: self.pos
+                size: self.size
+
+        BoxLayout:
+            orientation: 'vertical'
+            padding: dp(10)
+            spacing: dp(10)
+            canvas.before:
+                Color:
+                    rgba: 0, 0, 0, 0.5  # Semi-opaque black background
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [10]
+
+            Label:
+                text: "[b]Lasers & Feelings[/b]\n\nA tabletop role-playing game by John Harper\nBased on the song by The Doubleclicks\n\n[ref=license]License: CC BY-NC-SA 3.0 US[/ref]"
+                markup: True
+                on_ref_press: app.open_license
+                halign: 'center'
+                valign: 'middle'
+                size_hint_y: None
+                height: self.texture_size[1]
+
+            Label:
+                text: '[i]Application developed by Andrew Edwards[/i]\n\n v.0.4'
+                markup: True
+                halign: 'center'
+                valign: 'middle'
+                size_hint_y: None
+                height: self.texture_size[1]

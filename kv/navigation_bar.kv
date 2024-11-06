@@ -1,0 +1,24 @@
+<NavigationBar>:
+    size_hint_y: None
+    height: '100dp'
+    orientation: 'horizontal'
+    padding: '10dp'
+    spacing: '10dp'
+    canvas.before:
+        Color:
+            rgba: 0.08, 0.08, 0.08, .8
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    Image:
+        source: 'assets/img/name_banner.png'
+        allow_stretch: True
+        keep_ratio: True
+
+    MDRaisedButton:
+        text: 'Menu'
+        on_release: app.menu_methods.open_menu(self)
+
+<SpinnerOption>:
+    font_size: '12sp'

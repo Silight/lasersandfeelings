@@ -1,0 +1,54 @@
+# home_screen.kv
+<HomeScreen>:
+    name: 'home'
+    BoxLayout:
+        orientation: 'vertical'
+        padding: dp(20)
+        spacing: dp(20)
+
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1  # Ensure the image is fully opaque
+            Rectangle:
+                source: 'assets/img/raptor_pink.png'
+                pos: self.pos
+                size: self.size
+
+        ScrollView:
+            background_color: 0, 0, 0, 0  # Make ScrollView background transparent
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint_y: None
+                height: self.minimum_height
+                MDLabel:
+                    text: 
+                        """You are the crew of the interstellar scout ship [u][b][i]Raptor[/b][/i][/u].
+                        \n\nYour mission is to explore uncharted regions of space, deal with aliens both friendly and deadly,
+                        and defend the [b]Consortium[/b] worlds against space dangers.
+
+                        \n\n[b]Captain Darcy[/b] has been overcome by the strange psychic entity known as [b]Something Else[/b],
+                        leaving you to fend for yourselves while he recovers in a medical pod.
+                        
+                        \n\nWhat happens next? Play to find out!
+                        
+                        \n\nNumber of players: 3-6
+                        Age of players: 10+
+                        Length: 2-4 hours per game session
+                        Page Count: 1
+                        Release Date: 2013
+                        
+                        """
+                    markup: True
+                    halign: 'center'
+                    valign: 'middle'
+                    size_hint_y: None
+                    height: self.texture_size[1]
+                    text_size: self.width, None
+                    padding: dp(10), dp(10)
+                    canvas.before:
+                        Color:
+                            rgba: 0, 0, 0, 0.75  # Ensure the label background is transparent
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+

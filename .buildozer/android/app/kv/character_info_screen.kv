@@ -1,0 +1,55 @@
+<CharacterInfoScreen>:
+    name: 'character_info_screen'
+    BoxLayout:
+        orientation: 'vertical'
+        padding: dp(10)
+        spacing: dp(10)
+
+        MDLabel:
+            id: name_label
+            text: "Name: "
+            halign: 'left'
+
+        MDLabel:
+            id: style_label
+            text: "Style: "
+            halign: 'left'
+
+        MDLabel:
+            id: role_label
+            text: "Role: "
+            halign: 'left'
+
+        MDLabel:
+            id: goal_label
+            text: "Goal: "
+            halign: 'left'
+
+        MDLabel:
+            id: number_label
+            text: "Number: "
+            halign: 'left'
+        
+        TextInput:
+            id: notes_input
+            multiline: True
+            size_hint_y: None
+            height: dp(150)
+
+        MDBoxLayout:
+            orientation: 'horizontal'
+            MDRaisedButton:
+                text: "Back"
+                on_release: app.switch_screen('character_sheet')
+                
+            AnchorLayout:
+                anchor_x: 'right'
+                MDRaisedButton:
+                    text: "Save"
+                    on_release: 
+                        self.disabled = True
+                        self.text = 'Working on it'
+                        app.character_methods.save_notes()
+                        self.text = 'Notes Saved'
+                        self.disabled = False
+                        self.text = 'Save'

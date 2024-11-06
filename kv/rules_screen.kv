@@ -1,0 +1,50 @@
+<RulesScreen>
+    name: 'rules_screen'
+    MDBoxLayout:
+        orientation: 'vertical'
+        MDLabel: 
+            text: 'RULES:'
+            halign: 'center'
+            bold: True
+            underline: True
+            size_hint_y: .2
+        ScrollView:
+            background_color: 0, 0, 0, 0  # Make ScrollView background transparent
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint_y: None
+                height: self.minimum_height
+                MDLabel:
+                    text: 
+                        """When you do something risky, roll [b]1d6[/b]. Add [b]+1d6[/b] if you’re [b]prepared[/b] and [b]+1d6[/b] if you’re an [b]expert[/b].
+                        \n\nRoll your dice and compare each die result to your stat [b]number[/b]:
+                        \n\n 1. If you use [b]LASERS[/b], you succees by [b]rolling under[/b] your number.
+                        \n - [b]LASERS[/b] is for science, reason, technology, cold rationality, and calm precise action.
+                        \n\n 2. If you use [b]FEELINGS[/b], you succees by [b]rolling over[/b] your number.
+                        \n - [b]FEELINGS[/b] is for rapport, diplomacy, intuition, seduction, and wild passionate action.
+                        \n\n Success varies on number of dice that succeed:
+                        \n 0. Fail
+                        \n 1. Partial Success
+                        \n 2. Success
+                        \n 3. Critical Success! The GM tells you some extra effect you get.
+                        \n\n [b]LASER FEELINGS[/b]
+                        \n When you roll your number exactly, you have [b]LASER FEELINGS[/b]. The GM will tell you some incight into whats going on. 
+                        \n - Ask the GM a question. They must answer you honestly.
+                        \n - You can change your action if you want.
+                        \n - then roll again.
+                        \n\n [b]HELPING[/b]
+                        \n If you want to help someone else who's rolling, say how you try to help and make a roll. If you succeed, give them +1d6 for that action.
+                        """
+                    markup: True
+                    halign: 'center'
+                    valign: 'middle'
+                    size_hint_y: None
+                    height: self.texture_size[1]
+                    text_size: self.width, None
+                    padding: dp(10), dp(10)
+                    canvas.before:
+                        Color:
+                            rgba: 0, 0, 0, 0.75  # Ensure the label background is transparent
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size

@@ -1,0 +1,45 @@
+# create_character_screen.kv
+<CreateCharacterScreen>:
+    name: 'create_character'
+    BoxLayout:
+        orientation: 'vertical'
+        padding: dp(20)
+        spacing: dp(20)
+
+        MDTextField:
+            id: name_input
+            hint_text: "Character Name"
+
+        MDDropDownItem:
+            id: style_input
+            text: 'Select Style'
+            size_hint_x: 1
+            on_release: app.menu_methods.open_style_menu(self)
+
+        MDDropDownItem:
+            id: role_input
+            text: 'Select Role'
+            size_hint_x: 1
+            on_release: app.menu_methods.open_role_menu(self)
+
+        MDDropDownItem:
+            id: goal_input
+            text: 'Select Goal'
+            size_hint_x: 1
+            on_release: app.menu_methods.open_goal_menu(self)
+
+        MDDropDownItem:
+            id: number_input
+            text: 'Select Number'
+            size_hint_x: 1
+            on_release: app.menu_methods.open_number_menu(self)
+
+        MDTextField:
+            id: journal_input
+            hint_text: "Journal Entry"
+            multiline: True
+
+        MDRaisedButton:
+            text: "Save Character"
+            on_release: app.character_methods.save_character()
+            pos_hint: {'center_x': 0.5}

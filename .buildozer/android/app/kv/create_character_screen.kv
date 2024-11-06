@@ -1,0 +1,59 @@
+# create_character_screen.kv
+<CreateCharacterScreen>:
+    name: 'create_character'
+    MDBoxLayout:
+        orientation: 'vertical'
+        padding: dp(10)
+        spacing: dp(10)
+
+        MDBoxLayout:
+            orientation: 'vertical'
+            size_hint_y: None
+            height: self.minimum_height
+
+            MDTextField:
+                id: name_input
+                hint_text: 'Enter character name'
+                size_hint_x: 1
+
+            MDDropDownItem:
+                id: style_input
+                text: 'Select style'
+                size_hint_x: 1
+                on_release: app.menu_methods.open_style_menu(self)
+
+            MDDropDownItem:
+                id: role_input
+                text: 'Select role'
+                size_hint_x: 1
+                on_release: app.menu_methods.open_role_menu(self)
+
+            MDDropDownItem:
+                id: number_input
+                text: 'Select number'
+                size_hint_x: 1
+                on_release: app.menu_methods.open_num_menu(self)
+
+            MDTextField:
+                id: goal_input
+                hint_text: 'Enter character goal'
+                multiline: True
+                size_hint_x: 1
+                size_hint_y: None
+                height: '100dp'
+
+        Widget:
+            size_hint_y: 1
+
+        MDRaisedButton:
+            id: create_button
+            size_hint_y: None
+            height: '50dp'
+            pos_hint: {'center_x': 0.5}
+            text: 'Create Character'
+            on_press:
+                self.disabled = True
+                self.text = 'Working on it'
+                app.character_methods.save_character()
+                self.text = 'Character Created'
+                app.character_methods.existing_character()
