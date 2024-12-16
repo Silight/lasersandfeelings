@@ -1,4 +1,4 @@
-#!/home/silight/project/lasersandfeelings/kivy_venv/bin/python3
+#!/home/silight/project/lasersandfeelings/kivy_venv/bin/python3.10
 # -*- coding: utf-8 -*-
 import re
 import sys
