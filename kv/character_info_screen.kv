@@ -2,8 +2,8 @@
     name: 'character_info_screen'
     BoxLayout:
         orientation: 'vertical'
-        padding: dp(10)
-        spacing: dp(10)
+        padding: dp(20)
+        spacing: dp(20)
 
         MDBoxLayout:
             orientation: 'vertical'
@@ -61,7 +61,7 @@
             AnchorLayout:
                 anchor_x: 'right'
                 MDRaisedButton:
-                    text: "Save"
+                    text: "New Note"
                     on_release: 
                         self.disabled = True
                         self.text = 'Working on it'

@@ -6,6 +6,7 @@ from kivy.properties import StringProperty, NumericProperty
 from kivy.metrics import dp
 from kivymd.app import MDApp
 from kivy.uix.recycleview import RecycleView
+from datetime import datetime
 
 class CharacterMethods:
     def __init__(self, sm: ScreenManager):
@@ -13,7 +14,7 @@ class CharacterMethods:
 
     def save_character(self):
         screen = self.sm.get_screen('create_character')
-        name = screen.ids.name_input.text
+        name = screen.ids.name_input.text.strip()
         style = screen.ids.style_input.text
         role = screen.ids.role_input.text
         goal = screen.ids.goal_input.text
@@ -56,12 +57,22 @@ class CharacterMethods:
         return characters
 
     def save_notes(self):
+        print("save_notes method called")  # Debugging statement
+
         screen = self.sm.get_screen('character_info_screen')
         player_id = self.current_player_id
-        notes = screen.ids.notes_input.text
+        new_note = screen.ids.journal_input.text
+
+        # Debugging statements
+        print(f"Saving notes for player_id: {player_id}")
+        print(f"Notes: {new_note}")
+
         # Save notes to the database
-        Player.insert_player_notes(player_id, notes)
-        self.update_character_list()
+        Player.insert_player_notes(player_id, new_note)
+        self.update_character_list() 
+
+        # Clear the journal input field
+        screen.ids.journal_input.text = ""
 
     def switch_screen(self, screen_name):
         self.sm.current = screen_name

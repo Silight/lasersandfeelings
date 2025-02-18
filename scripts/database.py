@@ -62,12 +62,20 @@ class Player:
 
     @staticmethod
     def insert_player_notes(player_id, journal):
-        conn = connect()
-        c = conn.cursor()
-        datetime_now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        c.execute("INSERT INTO player_notes (player_id, journal, datetime) VALUES (?, ?, ?)", (player_id, journal, datetime_now))
-        conn.commit()
-        conn.close()
+        try:
+            conn = connect()
+            c = conn.cursor()
+            datetime_now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            c.execute("INSERT INTO player_notes (player_id, journal, datetime) VALUES (?, ?, ?)", (player_id, journal, datetime_now))
+            
+            # Debugging statement
+            print(f"Inserted notes for player_id: {player_id}")
+            
+            conn.commit()
+        except Exception as e:
+            print(f"Error inserting notes for player_id: {player_id}: {e}")
+        finally:
+            conn.close()
 
     @staticmethod
     def get_latest_player_note(player_id):
